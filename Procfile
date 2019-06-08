@@ -1,0 +1,1 @@
+web: gunicorn students.wsgi --pythonpath=students --log-file -
