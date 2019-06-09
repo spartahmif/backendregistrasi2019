@@ -8,20 +8,28 @@ from api.models import Student
 class TestNoteApi(APITestCase):
     def setUp(self):
         # create Student
-        self.student = Student(student_nim = '16517020', student_name = 'Blablabla', student_nickname = 'Bla', student_gender = True, student_birthplace = 'disini', student_birthdate = '11/12/2013', student_email = 'oksitafly@gmail.com', student_line='lalala', student_mobile='08115128170' )
+        self.student = Student(nim = '16517020', name = 'Blablabla', nickname = 'Bla', gender = True, birth_place = 'disini', birth_date = '11/12/2013', email = 'oksitafly@gmail.com', line='lalala', mobile='08115128170', address_home="disini", address_local="disana", disease="Alergi tugas", blood_type="S+", guardian_name="Sendiri", guardian_rel="Aku", guardian_mobile="0812345678", consent=True)
         self.student.save()
 
     def test_student_creation(self):
         response = self.client.post(reverse('students'), {
-            'student_nim' : '16517025',
-            'student_name' : 'Blablabli', 
-            'student_nickname' : 'Bli', 
-            'student_gender' : True, 
-            'student_birthplace' : 'disini',
-            'student_birthdate' : '11/12/2013',
-            'student_email' : 'oksiiiitafly@gmail.com',
-            'student_line' : 'lalala', 
-            'student_mobile': '07115128170' 
+            'nim' : '16517020', 
+            'name' : 'Blablabla', 
+            'nickname' : 'Bla', 
+            'gender' : 0, 
+            'birth_place' : 'disini', 
+            'birth_date' : '11/12/2013', 
+            'email' : 'oksitafly@gmail.com', 
+            'line' : 'lalala', 
+            'mobile' : '08115128170', 
+            'address_home' : "disini", 
+            'address_local' : "disana", 
+            'disease' : "Alergi tugas", 
+            'blood_type' : "S+", 
+            'guardian_name' : "Sendiri", 
+            'guardian_rel' : "Aku", 
+            'guardian_mobile' : "0812345678", 
+            'consent' : True
         })
 
         # assert new movie was added
@@ -36,19 +44,27 @@ class TestNoteApi(APITestCase):
 
     def test_updating_student(self):
         response = self.client.put(reverse('detail', kwargs={'pk': 1}), {
-            'student_nim' : '16517025',
-            'student_name' : 'Blablablu', 
-            'student_nickname' : 'Blu', 
-            'student_gender' : True, 
-            'student_birthplace' : 'disini',
-            'student_birthdate' : '11/12/2013',
-            'student_email' : 'oksiiiitafly@gmail.com',
-            'student_line' : 'lalala', 
-            'student_mobile': '07115128170'
+            'nim' : '16517020', 
+            'name' : 'Blablablu', 
+            'nickname' : 'Bla', 
+            'gender' : 0, 
+            'birth_place' : 'disini', 
+            'birth_date' : '11/12/2013', 
+            'email' : 'oksitafly@gmail.com', 
+            'line' : 'lalala', 
+            'mobile' : '08115128170', 
+            'address_home' : "disini", 
+            'address_local' : "disana", 
+            'disease' : "Alergi tugas", 
+            'blood_type' : "S+", 
+            'guardian_name' : "Sendiri", 
+            'guardian_rel' : "Aku", 
+            'guardian_mobile' : "0812345678", 
+            'consent' : True
         }, format="json")
 
         # check info returned has the update
-        self.assertEqual('Blablablu', response.data['student_name'])
+        self.assertEqual('Blablablu', response.data['name'])
 
     def test_deleting_student(self):
         response = self.client.delete(reverse('detail', kwargs={'pk': 1}))
