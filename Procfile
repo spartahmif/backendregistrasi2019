@@ -1,1 +1,1 @@
-web: gunicorn students.wsgi --pythonpath=students --log-file -
+web: gunicorn registrasi.wsgi --log-file -
