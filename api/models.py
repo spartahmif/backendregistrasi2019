@@ -20,8 +20,11 @@ class Student(models.Model):
     guardian_name = models.CharField(max_length=40)
     guardian_rel = models.CharField(max_length=20)
     guardian_mobile = models.CharField(max_length=20)
+    chk_berkemahasiswaan = models.BooleanField()
+    chk_karya = models.BooleanField()
+    chk_komunikasi = models.BooleanField()
+    materi_others = models.CharField(max_length=50)
     consent = models.BooleanField()
-    preferences = models.TextField()
 
     def __str__(self):
         return self.name
