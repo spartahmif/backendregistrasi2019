@@ -25,7 +25,7 @@ SECRET_KEY = 't^6jg)a687n_7lu*36kwxd)au1so+t)c6$a=p_)6am7o30rw2m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['spartaregis2019.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['regissparta2019.herokuapp.com','127.0.0.1']
 
 
 # Application definition
