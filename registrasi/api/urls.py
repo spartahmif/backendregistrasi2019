@@ -5,5 +5,5 @@ from api.views import StudentCreateView, StudentDetailView
 
 urlpatterns = [
     url(r'^students/$', StudentCreateView.as_view(), name='students'),
-    url(r'^students/(?P<id>[0-9]+)$', StudentDetailView.as_view(), name='detail'),
+    url(r'^students/(?P<pk>[0-9]+)$', StudentDetailView.as_view(), name='detail'),
 ]
