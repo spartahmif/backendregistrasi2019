@@ -23,7 +23,7 @@ class Student(models.Model):
     chk_berkemahasiswaan = models.BooleanField()
     chk_karya = models.BooleanField()
     chk_komunikasi = models.BooleanField()
-    materi_others = models.CharField(max_length=50)
+    materi_others = models.CharField(max_length=50, null=True, blank=True)
     consent = models.BooleanField()
 
     def __str__(self):
